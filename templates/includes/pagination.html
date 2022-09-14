@@ -1,0 +1,32 @@
+{% load static %}
+
+<nav class="mt-4" aria-label="Page navigation sample">
+    <ul class="pagination justify-content-center">
+        
+    {% if queryset.has_previous %}
+        <li class="page-item" >
+            <a class="page-link" href="?page={{queryset.previous_page_number}}" aria-label="Previous" data-page="{{queryset.previous_page_number}}">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+    {% endif %}
+
+
+    {% for page in custom_range %}
+    {% if page == queryset.number %}
+    <li class="page-item active"><a class="page-link" href="?page={{page}}" data-page="{{page}}">{{page}}</a></li>
+    {% else %}
+    <li class="page-item"><a class="page-link" href="?page={{page}}" data-page="{{page}}">{{page}}</a></li>
+    {% endif %}
+    {% endfor %}
+
+
+    {% if queryset.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{queryset.next_page_number}}" aria-label="Previous" data-page="{{queryset.next_page_number}}">
+            <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    {% endif %}
+    </ul>
+</nav>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+{% load static %}
+{% load humanize %}
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="max-age=604800" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>
+   {% block title %}{% endblock title %}
+</title>
+{% include 'includes/styles.html' %}
+<script type="text/javascript">
+   /// some script
+   
+   // jquery ready start
+   $(document).ready(function() {
+      // jQuery code
+   
+   }); 
+   // jquery end
+   </script>
+</head>
+<body>
+   {% include 'includes/navbar.html' %}
+   {% comment %} content {% endcomment %}
+
+{% block content %}
+
+
+{% endblock content %}
+<!-- ========================= FOOTER ========================= -->
+{% include 'includes/footer.html' %}
+<!-- ========================= FOOTER END // ========================= -->
+{% block scripts %}{% endblock scripts %}
+
+
+{% include 'includes/scripts.html' %}
+</body>
+</html>

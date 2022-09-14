@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}{{title}}{% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+    <td class="text-center"><a class='btn btn-dark mb-4' href="{% url 'store:export_excel' %}">Cetak Excel</a></td>
+    <table class="table">
+        <thead>
+          <tr>
+            <th class='text-center' scope="col">No</th>
+            <th class='text-center' scope="col">Product Name</th>
+            <th class='text-center' scope="col">Price</th>
+            <th class='text-center' scope='col'>Quantity</th>
+            <th class='text-center' scope='col'>Category</th>
+            <th class='text-center' scope='col'>Available</th>
+            <th class='text-center' scope='col'>Modified Date</th>
+            <th class='text-center' scope='col'>Created Date</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <th class='text-center' scope="row">{{forloop.counter}}</th>
+                <td class='text-center' scope="row"><a href="{% url 'store:product_detail' category_input=product.category.slug product_input=product.slug %}" class="nav-link fw-bold">{{product.product_name|truncatechars:25}}</a></td>
+                <td class='text-center' scope="row">{{product.price}}</td>
+                <td class='text-center' scope="row">{{product.stock}}</td>
+                <td class='text-center' scope="row">{{product.category.category_name}}</td>
+                <td class='text-center' scope="row">{{product.is_available}}</td>
+                <td class='text-center' scope="row">{{product.modified_date}}</td>  
+                <td class='text-center' scope="row">{{product.created_date}}</td>  
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+      {% comment %}  {% endcomment %}
+      
+</div>
+{% endblock content %}

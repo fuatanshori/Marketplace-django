@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{title}}
+{% endblock title %}
+
+{% block content %}
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+
+    <!-- ============================ COMPONENT REGISTER   ================================= -->
+        <div class="card mx-auto" style="max-width:520px; margin-top:40px;">
+          <article class="card-body">
+            {% include 'includes/alerts.html' %}
+            <header class="mb-4 text-center"><h4 class="card-title">Sign up</h4></header>
+            <form method="POST" action="{% url 'accounts:register' %}">
+                {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label>First name</label>
+                              {{forms.first_name}}
+                        </div> <!-- form-group end.// -->
+                        <div class="col form-group">
+                            <label>Last name</label>
+                              {{forms.last_name}}
+                        </div> <!-- form-group end.// -->
+                    </div> <!-- form-row end.// -->
+                    <div class="form-group">
+                        <label>Email</label>
+                        {{forms.email}}
+                    </div> <!-- form-group end.// -->
+                    <div class="form-row">
+                          <label>Phone Number</label>
+                          {{forms.phone_number}}
+                    </div> <!-- form-row.// -->
+                    <br>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            {{forms.password.label}}
+                            {{forms.password}}                          
+                        </div> <!-- form-group end.// --> 
+                        <div class="form-group col-md-6">
+                            {{forms.confirm_password.label}}
+                            {{forms.confirm_password}}
+
+                        </div> <!-- form-group end.// -->  
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-dark btn-block"> Register  </button>
+                    </div> <!-- form-group// -->      
+                        {{forms.email.errors}}
+                        {{forms.non_field_errors}}
+                </form>
+            </article><!-- card-body.// -->
+        </div> <!-- card .// -->
+        <p class="text-center mt-4">Have an account? <a href="{% url 'accounts:login' %}">Log In</a></p>
+        <br><br>
+    <!-- ============================ COMPONENT REGISTER  END.// ================================= -->
+    
+    
+    </section>
+    <!-- ========================= SECTION CONTENT END// ========================= -->
+{% endblock content %}
