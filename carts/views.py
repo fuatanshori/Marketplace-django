@@ -9,27 +9,30 @@ from django.contrib.auth.decorators import login_required
 # create sesson id for get cart_id
 def _cart_id(request):
     cart = request.session.session_key
-    # jika sesi id tidak ada 
+    # ! if cart is None 
     if not cart:
-        # sesi id akan dibuat
+        # !create session id
         cart =request.session.create()
-    # kembalikan cart ada di line 12
+    # todo return cart
     return cart
 
 
 def add_cart(request,product_id):
     current_user =request.user
     # take product models by id
-    product=Products.objects.get(id=product_id)
+    product = Products.objects.get(id=product_id)
+
     # if user is authenticated
     if current_user.is_authenticated:
         # create product variation in list
         product_variation = []
+
         # if request.method is post
         if request.method == 'POST':
-            # takeing all component in rquest.post
+            # ! important!!! takeing all component in request.post
             for item in request.POST:
                 # key is partition in request.post
+                # key contains about = category value and variations category
                 key = item
                 # value berisi tentang partisi request.post yaitu color dan size
                 value = request.POST[key]
@@ -272,7 +275,7 @@ def cart(request,total=0,quantity=0,cart_items=None):
     return render(request,'carts/carts.html',context)
 
 
-
+# ! important!!! if user not login point to login page
 @login_required(login_url="accounts:login")
 def checkout(request,total=0,quantity=0,cart_items=None):
     
