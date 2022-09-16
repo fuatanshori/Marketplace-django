@@ -16,7 +16,7 @@
               <p class="card-text mb-0">{{order.full_name}}</p>
               <p class="card-text mb-0">{{order.full_address}}</p>
               <p class="card-text mb-0">{{order.city}},{{order.state}} </p>
-              <p class="card-text mb-0">{{order.country}} </p>
+              <p class="card-text mb-0">{{order.country|capfirst}},{{order.province|capfirst}},{{order.postal_code}}</p>
               <p class="card-text mb-0">{{order.email}} </p>
               <p class="card-text mb-0">{{order.phone}} </p>
               {% if order.order_note %}

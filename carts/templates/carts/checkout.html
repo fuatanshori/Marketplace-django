@@ -10,8 +10,9 @@
     <div class="row">
         <aside class="col-lg-6">
     <div class="card">
-        {% include 'includes/alerts.html' %}
+        
         <div class="card-body">
+            {% include 'includes/alerts.html' %}
             <h4 class="card-title mb-4">Billing Address</h4>
             <form action="{% url 'orders:place_order' %}" method="POST">
                 {% csrf_token %}
@@ -54,12 +55,16 @@
                         <input type="text" name="city" id="" class="form-control" required>
                     </div>
                     <div class="col form-group">
-                        <label for="">State</label>
-                        <input type="text" name="state" id="" class="form-control" required>
+                        <label for="">Province</label>
+                        <input type="text" name="province" id="" class="form-control" required>
                     </div>
                     <div class="col form-group">
                         <label for="">Country</label>
                         <input type="text" name="country" id="" class="form-control" required>
+                    </div>
+                    <div class="col form-group">
+                        <label for="">Postal Code</label>
+                        <input type="text" name="postal_code" id="" class="form-control" required>
                     </div>
                 </div>
                 <div class="form-row">

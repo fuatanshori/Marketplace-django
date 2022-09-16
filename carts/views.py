@@ -9,9 +9,9 @@ from django.contrib.auth.decorators import login_required
 # create sesson id for get cart_id
 def _cart_id(request):
     cart = request.session.session_key
-    # ! if cart is None 
+    # ? if cart is None 
     if not cart:
-        # !create session id
+        # ?create session id
         cart =request.session.create()
     # todo return cart
     return cart
@@ -29,7 +29,7 @@ def add_cart(request,product_id):
 
         # if request.method is post
         if request.method == 'POST':
-            # ! important!!! takeing all component in request.post
+            # ? important!!! takeing all component in request.post
             for item in request.POST:
                 # key is partition in request.post
                 # key contains about = category value and variations category
@@ -100,6 +100,8 @@ def add_cart(request,product_id):
             cart_item.save()
             print('\n \n')
         return redirect('carts:cart')
+
+        
     # if user is not authenticated
     else:
         # create product variation in list
