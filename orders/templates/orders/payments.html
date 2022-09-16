@@ -15,20 +15,26 @@
             <div class="card-body">
               <p class="card-text mb-0">{{order.full_name}}</p>
               <p class="card-text mb-0">{{order.full_address}}</p>
-              <p class="card-text mb-0">{{order.city}},{{order.state}} </p>
-              <p class="card-text mb-0">{{order.country|capfirst}},{{order.province|capfirst}},{{order.postal_code}}</p>
+              <p class="card-text mb-0">{{order.city}},{{order.province|capfirst}},{{order.postal_code}}</p>
+              <p class="card-text mb-0">{{order.country|capfirst}}</p>
               <p class="card-text mb-0">{{order.email}} </p>
               <p class="card-text mb-0">{{order.phone}} </p>
               {% if order.order_note %}
               <b class="card-text mb-0">Order Note : </b>{{order.order_note}}
               {% endif %}
             </div>
-        <div class="card">
-            <h5 class="card-header">Payment Method</h5>
+        <div class="card text-center">
+            <div class="card-header">
+                <h5 class="card-title">Payment Method</h5>
+            </div>
             <div class="card-body">
               <p class="card-text">Paypal</p>
+              <p class="card-text">Briva</p>
             </div>
-        </div>
+            <div class="card-footer text-muted">
+              2 lainya..
+            </div>
+          </div>
         <div class="card">
             <h5 class="card-header">Review Product</h5>
             <div class="card-body">
