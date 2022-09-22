@@ -1,10 +1,10 @@
 import datetime
+import json
 from django.shortcuts import render,redirect,HttpResponse
 from carts.models import CartItem
 from .forms import OrderForm
-from orders.models import Order
+from orders.models import Order, Payment
 from django.contrib import messages
-from urllib.error import URLError, HTTPError
 
 
 # Create your views here.
@@ -68,6 +68,24 @@ def place_order(request,total=0,quantity=0):
 
 
 def payments(request):
+    body = json.loads(request.body)
+    order = Order.objects.get(user=request.user,is_ordered=False,order_number = body['orderID'])
+    # store transaction detail inside payments model
+    payment = Payment(
+        user = request.user,
+        payment_id = body['transID'],
+        payment_method = body['payment_method'],
+        amount_paid = order.order_total,
+        status = body['status']
+        
+    )
+    payment.save()
+
+    order.payment == payment
+    order.is_ordered = True
+    order.save()
+
+    # move to cart item to order product table
     context={
         'title':'Payment | page',
     }

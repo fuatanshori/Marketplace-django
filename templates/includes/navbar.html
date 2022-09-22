@@ -64,7 +64,7 @@
                             {% if user.is_authenticated %}
                             <div class="text-center"> 
                                 <small class="title text-muted ">Welcome {{user.first_name}}</small>
-                                {% if user.is_staff %}
+                                {% if user.is_superadmin %}
                                 <a href="{% url 'store:data' %}">Data</a> <span class="dark-transp"> | </span>
                                 <a href="{% url 'admin:index' %}">Admin</a> <span class="dark-transp"> | </span>
                                 {% else %}
