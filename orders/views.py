@@ -1,11 +1,15 @@
 import datetime
 import json
-from django.shortcuts import render,redirect,HttpResponse
+from django.shortcuts import render,redirect
+from django.http import JsonResponse
 from carts.models import Cart, CartItem
+from store.models import Products
 from .forms import OrderForm
 from  .models import Order, OrderProduct, Payment
 from django.contrib import messages
 
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
 
 # Create your views here.
 def place_order(request,total=0,quantity=0):
@@ -67,6 +71,8 @@ def place_order(request,total=0,quantity=0):
             messages.error(request,'Invalid Email')
             return redirect('carts:checkout')
 
+def order_complete(request):
+    return render(request,'orders/order_complete.html',)
 
 def payments(request):
     body = json.loads(request.body)
@@ -103,11 +109,36 @@ def payments(request):
         orderproduct.ordered = True
         orderproduct.save()
 
+        cart_item = CartItem.objects.get(id=item.id)
+        product_variation = cart_item.variation.all()
+        orderproduct = OrderProduct.objects.get(id=orderproduct.id)
+        orderproduct.variation.set(product_variation)
+        orderproduct.save()
     # reduce the quantity of the sold product
-
+        product = Products.objects.get(id=item.product_id)
+        product.stock -= item.quantity
+        product.save()
     # clear cart
-    #  send order rechived email to customer
-
-    # send order number and trancsaction id back to send data method  via jsonrespons
+    CartItem.objects.filter(user=request.user).delete()
     
-    return render(request,'orders/payments.html')
+    product = OrderProduct.objects.filter(user=request.user,order__order_number=body['orderID'])
+    #  send order rechived email to customer
+    user = request.user
+    mail_subject = 'Thank u for order'
+    message = render_to_string("orders/messages/order_recieved_email.html",{
+        'user':user,
+        'order':order,
+        'product':product,
+    })
+    
+    
+    to_email = request.user.email
+    send_email = EmailMessage(mail_subject,message,to=[to_email])
+    send_email.send()
+    # send order number and trancsaction id back to send data method  via jsonrespons
+    data ={
+        'order_number':body['orderID'],
+        'transID':payment.id
+    }
+    return JsonResponse(data)
+

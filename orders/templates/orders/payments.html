@@ -202,9 +202,13 @@
                                     
                                 }),
                             })
+                            .then((response) => response.json())
+                            .then((data) => 
+                            console.log('success',data)
+                            );  
                         }    
                   };
-
+                
                   return actions.order.capture().then(captureOrderHandler);
               },
 

@@ -1,0 +1,7 @@
+{% autoescape off %}
+Hi {{ user.first_name }},
+Your order has been recieved
+order number : {{order.order_number}}
+product name : {% for i in product %}{{i}}, {% endfor %}.
+
+{% endautoescape %}
