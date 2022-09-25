@@ -144,6 +144,7 @@
                 return cookieValue;
             }
             var url = "{% url 'orders:payments' %}";
+            var redirect_url = "{% url 'orders:order_complete' %}";
             var orderID = '{{order.order_number}}'
             var csrftoken = getCookie('csrftoken')
             var amount = {{grand_total}}
@@ -204,7 +205,7 @@
                             })
                             .then((response) => response.json())
                             .then((data) => 
-                            console.log('success',data)
+                            window.location.href = redirect_url + '?order_number='+data.order_number+'&payment_id='+data.transID
                             );  
                         }    
                   };

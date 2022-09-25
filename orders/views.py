@@ -72,7 +72,32 @@ def place_order(request,total=0,quantity=0):
             return redirect('carts:checkout')
 
 def order_complete(request):
-    return render(request,'orders/order_complete.html',)
+    order_number=request.GET.get('order_number')
+    transID=request.GET.get('payment_id')
+    try:
+        order = Order.objects.get(order_number=order_number,is_ordered=True)
+        ordered_products = OrderProduct.objects.filter(order_id=order.id)
+        subtotal =0
+        for i in ordered_products:
+            subtotal += i.product_price*i.quantity
+
+        tax = subtotal * 0.06
+        payment=Payment.objects.get(payment_id=transID)
+        products=OrderProduct.objects.filter(user=request.user,order__order_number=order_number,payment__payment_id=transID)
+        context={
+            'order':order,
+            'ordered_products':ordered_products,
+            'order_number':order.order_number,
+            'title':'Status | Page',
+            'transID':payment.payment_id,
+            'payment':payment,
+            'products':products,
+            'subtotal':subtotal,
+            'tax':int(tax),
+        }
+    except(Payment.DoesNotExist,Order.DoesNotExist):
+        return redirect('home:index')
+    return render(request,'orders/order_complete.html',context)
 
 def payments(request):
     body = json.loads(request.body)
@@ -138,7 +163,7 @@ def payments(request):
     # send order number and trancsaction id back to send data method  via jsonrespons
     data ={
         'order_number':body['orderID'],
-        'transID':payment.id
+        'transID':payment.payment_id
     }
     return JsonResponse(data)
 

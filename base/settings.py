@@ -126,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 
-LANGUAGE_CODE = 'id'
+LANGUAGE_CODE = 'ID'
 TIME_ZONE = 'Asia/Makassar'
 
 
