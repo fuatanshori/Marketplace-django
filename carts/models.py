@@ -13,7 +13,7 @@ class CartItem(models.Model):
     user            = models.ForeignKey(Account,on_delete=models.CASCADE,null=True)
     product         = models.ForeignKey(Products,on_delete=models.CASCADE)
     variation       = models.ManyToManyField(Variation,blank=True)
-    cart            = models.ForeignKey(Cart,on_delete=models.CASCADE,null=True)
+    cart            = models.ForeignKey(Cart,on_delete=models.CASCADE,null=True,blank=True)
     quantity        = models.PositiveIntegerField()
     is_active       = models.BooleanField(default=True)
 

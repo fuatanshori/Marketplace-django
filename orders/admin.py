@@ -14,7 +14,10 @@ class OrderAdmin(admin.ModelAdmin):
     list_per_page=20
     inlines = [OrderProductInline]
 class OrderProductAdmin(admin.ModelAdmin):
+    list_display=['id','payment_id','user','created_at']
+    list_display_links=['payment_id']
     search_fields=['payment_id']
+    list_per_page=20
 admin.site.register(Payment,OrderProductAdmin)
 admin.site.register(Order,OrderAdmin)
 admin.site.register(OrderProduct)

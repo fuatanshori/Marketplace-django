@@ -1,6 +1,4 @@
-import re
-from unicodedata import category
-from django.shortcuts import render,get_object_or_404,HttpResponse
+from django.shortcuts import render,get_object_or_404,HttpResponse,redirect
 from carts.views import _cart_id
 from carts.models import CartItem
 from .models import Products
@@ -10,9 +8,6 @@ from django.db.models import Q
 from django.contrib.admin.views.decorators import staff_member_required
 import xlwt
 from datetime import datetime
-import zoneinfo
-from django.utils import timezone
-import time
 
 def store(request,category_input=None):
     categories = None
@@ -43,6 +38,7 @@ def product_detail(request,category_input,product_input):
 
     try:
         single_product=Products.objects.get(category__slug=category_input,slug=product_input)
+        a = single_product.stock
         in_cart =CartItem.objects.filter(cart__cart_id=_cart_id(request),product=single_product).exists()
     except Exception as e:
         raise e
@@ -51,6 +47,7 @@ def product_detail(request,category_input,product_input):
         'title':(f'{single_product} | page'),
         'single_product':single_product,
         'in_cart':in_cart,
+        'stock':a
         
     }
     return render(request,'store/product_detail.html',context)
@@ -58,8 +55,8 @@ def product_detail(request,category_input,product_input):
 def search(request):
     if 'keyword' in request.GET:
         keyword =request.GET['keyword']
-
     products=Products.objects.filter(
+       Q(is_available = True),
         Q(category__category_name__iexact=keyword)|
         Q(product_name__icontains=keyword)
     ).order_by('category')

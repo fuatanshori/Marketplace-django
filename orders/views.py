@@ -82,6 +82,7 @@ def order_complete(request):
             subtotal += i.product_price*i.quantity
 
         tax = subtotal * 0.06
+        grand_total = tax+subtotal
         payment=Payment.objects.get(payment_id=transID)
         products=OrderProduct.objects.filter(user=request.user,order__order_number=order_number,payment__payment_id=transID)
         context={
@@ -94,6 +95,7 @@ def order_complete(request):
             'products':products,
             'subtotal':subtotal,
             'tax':int(tax),
+            'grand_total':grand_total,
         }
     except(Payment.DoesNotExist,Order.DoesNotExist):
         return redirect('home:index')

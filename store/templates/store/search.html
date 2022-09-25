@@ -119,7 +119,6 @@
     
         </aside> <!-- col.// -->
         <main class="col-md-9">
-    
     <header class="border-bottom mb-4 pb-3">
             <div class="form-inline">
                 <span class="mr-md-auto"><b>{{product_count}}</b> Items found </span>
@@ -148,6 +147,7 @@
         </div> <!-- col.// -->
         {% endfor %}
     </div> <!-- row end.// -->
+    
         {% comment %} pagination {% endcomment %}
         {% include "includes/pagination.html" with queryset=products custom_range=custom_range %}
         </main> <!-- col.// -->

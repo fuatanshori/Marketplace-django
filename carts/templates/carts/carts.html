@@ -63,6 +63,7 @@
                     </div>
                     <input type="text" class="form-control"  value="{{cart_item.quantity}}">
                     <div class="input-group-append">
+                        
                     <form action="{% url 'carts:add_cart' cart_item.product.id %}" method="POST">
                         {% csrf_token %}   
                         {% for item in cart_item.variation.all %}

@@ -64,14 +64,23 @@ def add_cart(request,product_id):
             for item in cart_item:
                 existing_variation = item.variation.all()
                 ex_var_list.append(list(existing_variation))
+                stock = item.product.stock
+                print(stock)
                 id.append(item.id)
+
+
             if product_variation in ex_var_list:
-                # incraese the cart quantty
                 index = ex_var_list.index(product_variation)
-                item_id = id[index]
-                item = CartItem.objects.get(product=product,id=item_id)
-                item.quantity +=1
-                item.save()
+                item_id_range = id[index]
+                item_range = CartItem.objects.get(product=product,id=item_id_range)
+                range =item_range.quantity
+                if range>=stock:
+                    # incraese the cart quantty
+                    item_range.quantity +=0
+                    item_range.save()
+                else:
+                    item_range.quantity +=1
+                    item_range.save()
             else:
                 item = CartItem.objects.create(
                     product = product,
@@ -167,15 +176,24 @@ def add_cart(request,product_id):
             for item in cart_item:
                 existing_variation = item.variation.all()
                 ex_var_list.append(list(existing_variation))
+                stock = item.product.stock
+                print(stock)
                 id.append(item.id)
-            print("item : "+str(item))
+
+
             if product_variation in ex_var_list:
-                # incraese the cart quantty
                 index = ex_var_list.index(product_variation)
-                item_id = id[index]
-                item = CartItem.objects.get(product=product,id=item_id)
-                item.quantity +=1
-                item.save()
+                item_id_range = id[index]
+                item_range = CartItem.objects.get(product=product,id=item_id_range)
+                range =item_range.quantity
+                if range>=stock:
+                    # incraese the cart quantity
+                    item_range.quantity +=0
+                    item_range.save()
+                else:
+
+                    item_range.quantity +=1
+                    item_range.save()
             else:
                 item = CartItem.objects.create(
                     product = product,
@@ -298,7 +316,7 @@ def checkout(request,total=0,quantity=0,cart_items=None):
     tax = round(total * 0.06)
     grand_total = total + tax
     context={
-        'title':'Billing Address | Page',
+        'title':'Cart | Page',
         'total':total,
         'quantity':quantity,
         'cart_items':cart_items,
