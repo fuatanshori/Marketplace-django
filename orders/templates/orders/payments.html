@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load humanize %}
+{% block title %}{{title}}{% endblock title %}
 {% block content %}
 <section class="section-content padding-y bg">
     <div class="container">
@@ -142,8 +143,8 @@
                 }
                 return cookieValue;
             }
-            var url = "{% url 'orders:payments' %}"
-            var orderID = {{order.order_number}}
+            var url = "{% url 'orders:payments' %}";
+            var orderID = '{{order.order_number}}'
             var csrftoken = getCookie('csrftoken')
             var amount = {{grand_total}}
             var payment_method = 'paypal'
@@ -180,9 +181,11 @@
                   const captureOrderHandler = (details) => {
                         const payerName = details.payer.name.given_name;
                         console.log(details)
+                        console.log(details.id)
                         console.log(url)
                         console.log(orderID)
                         console.log(amount)
+                        console.log(csrftoken)
                         sendData();
                         function sendData(){
                             fetch(url,{
@@ -199,10 +202,7 @@
                                     
                                 }),
                             })
-                            
-
-                        }
-                        
+                        }    
                   };
 
                   return actions.order.capture().then(captureOrderHandler);

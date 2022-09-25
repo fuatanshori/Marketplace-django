@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load humanize %}
-
+{% block title %}{{title}}{% endblock title %}
 {% block content %}
 <section class="section-content padding-y bg">
     <div class="container">
@@ -70,7 +70,7 @@
                 <div class="form-row">
                     <div class="col form-group">
                         <label for="">Order Note</label>
-                        <textarea name="order_note" id="" rows="2" class="form-control"></textarea>
+                        <textarea name="order_note" id="" rows="2" class="form-control" required></textarea>
                     </div>
                 </div>
             

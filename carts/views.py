@@ -298,7 +298,7 @@ def checkout(request,total=0,quantity=0,cart_items=None):
     tax = round(total * 0.06)
     grand_total = total + tax
     context={
-        'title':'Cart | Page',
+        'title':'Billing Address | Page',
         'total':total,
         'quantity':quantity,
         'cart_items':cart_items,
