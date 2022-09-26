@@ -26,7 +26,6 @@ def add_cart(request,product_id):
     if current_user.is_authenticated:
         # create product variation in list
         product_variation = []
-
         # if request.method is post
         if request.method == 'POST':
             # ? important!!! takeing all component in request.post
@@ -36,6 +35,8 @@ def add_cart(request,product_id):
                 key = item
                 # value berisi tentang partisi request.post yaitu color dan size
                 value = request.POST[key]
+                print('key =>',key)
+                print('value =>',value)
                 # coba
                 try:
                     # mengambil Variation dengan
@@ -45,6 +46,7 @@ def add_cart(request,product_id):
                     variation = Variation.objects.get(product=product,variation_category__iexact=key,variation_value__iexact=value)
                     # tambahkan variation kedalam list product variation line 23
                     product_variation.append(variation)
+                    print('variation => ',len(product_variation))
                 except:
                     pass
 
@@ -62,23 +64,20 @@ def add_cart(request,product_id):
             ex_var_list =[]
             id = []
             for item in cart_item:
-                existing_variation = item.variation.all()
+                existing_variation = item.variation.all() 
                 ex_var_list.append(list(existing_variation))
                 stock = item.product.stock
-                print(stock)
                 id.append(item.id)
-
-
             if product_variation in ex_var_list:
                 index = ex_var_list.index(product_variation)
                 item_id_range = id[index]
                 item_range = CartItem.objects.get(product=product,id=item_id_range)
-                range =item_range.quantity
-                if range>=stock:
+                range = item_range.quantity
+                if range >= stock:
                     # incraese the cart quantty
                     item_range.quantity +=0
-                    item_range.save()
                 else:
+                    
                     item_range.quantity +=1
                     item_range.save()
             else:
