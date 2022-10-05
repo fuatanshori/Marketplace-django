@@ -12,11 +12,14 @@ if(searchform){
             
             //get the data attribut.
             let page = this.dataset.page
+            
 
             //add hiden searchinput to form
             searchform.innerHTML +=`<input value=${page} name="page" hidden/>`
+            
             //submit form
             searchform.submit()
+            console.log(page)
         })
         
     }

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
 {{title}}
 {% endblock title %}
@@ -45,4 +46,6 @@
     {% endif %}
     </section>
     <!-- ========================= SECTION CONTENT END// ========================= -->
+    
 {% endblock content %}
+{% block scripts %}<script src="{% static 'js/togglePasswordd.js' %}"></script>{% endblock scripts %}

@@ -124,6 +124,7 @@ def login(request):
                     auth_login(request,user)
                     messages.success(request,'login success')
                     url = request.META.get("HTTP_REFERER")
+                    print(url)
                     try:
                         query = requests.utils.urlparse(url).query
                         params = dict(
