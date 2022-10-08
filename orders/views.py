@@ -113,11 +113,10 @@ def payments(request):
         payment_id = body['transID'],
         payment_method = body['payment_method'],
         amount_paid = order.order_total,
-        status = body['status'],
-        
+        status = body['status'],   
     )
     payment.save()
-
+    print(payment)
     order.payment = payment
     order.is_ordered = True
     order.save()

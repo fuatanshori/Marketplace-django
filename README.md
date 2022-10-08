@@ -1,16 +1,20 @@
 # Marketplace-django
-zoom 50%
+
 <h2>Home Page</h2>
+zoom 50%
+
 ![Screenshot (232)](https://user-images.githubusercontent.com/95455444/194714615-abd4f9e1-5168-439d-b093-71e6674fe325.png)
 
-Register Page
+<h2>Register Page</h2>
 ![Screenshot (237)](https://user-images.githubusercontent.com/95455444/194714703-c1bb7d16-4252-4f8f-83df-3beb2fc4db52.png)
-  After registering an account, an activation link will be sent to the user's email immediately
+
+  <p>After registering an account, an activation link will be sent to the user's email immediately
   ![Screenshot (239)](https://user-images.githubusercontent.com/95455444/194714832-00ea3b31-549f-4369-967e-5d9205fcbdbe.png)
     email
     ![Screenshot (240)](https://user-images.githubusercontent.com/95455444/194714857-346c264f-c116-4d40-b631-d32ec9a3d788.png)
       if click the link
         ![Screenshot (241)](https://user-images.githubusercontent.com/95455444/194714907-5fe452fc-9c7a-4bc2-ae29-c92e76432b30.png)
+</p>
 zoom 100%
 Login Page
 ![Screenshot (238)](https://user-images.githubusercontent.com/95455444/194714739-be1ceb44-dcb3-4790-a9c9-263022293a12.png)
