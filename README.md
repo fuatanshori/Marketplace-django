@@ -33,31 +33,32 @@
 <img src="https://user-images.githubusercontent.com/95455444/194715072-b9f002a3-8c6a-4fd1-b9eb-28e562714daf.png">
 <b>if click the link</b>
 <img src="https://user-images.githubusercontent.com/95455444/194715064-7be11325-6505-4445-826a-89b3c5bac501.png">
-<b>if after reset the password</b>
+<b>after reset the password</b>
 <img src="https://user-images.githubusercontent.com/95455444/194715132-880ec3e5-bc66-43c4-8a92-891bc2d068c3.png">
 </p>
 
 <h2>Store Page</h2>
 <p>
-![Screenshot (233)](https://user-images.githubusercontent.com/95455444/194714639-4bd36b19-ec1b-4bcd-a5eb-b5cf17824de6.png)
-Product Detail
-![Screenshot (234)](https://user-images.githubusercontent.com/95455444/194714659-094341e3-f42d-4bfd-9d94-1e273e3dbc70.png)
+<img src="https://user-images.githubusercontent.com/95455444/194714639-4bd36b19-ec1b-4bcd-a5eb-b5cf17824de6.png">
+
+<h2>Product Detail</h2>
+<img src="https://user-images.githubusercontent.com/95455444/194714659-094341e3-f42d-4bfd-9d94-1e273e3dbc70.png">
 </p>
 <h2>cart</h2>
 <p>
-![Screenshot (235)](https://user-images.githubusercontent.com/95455444/194714676-105925bb-a1ad-4565-a2ef-26f62a78562f.png)
+<img src="https://user-images.githubusercontent.com/95455444/194714676-105925bb-a1ad-4565-a2ef-26f62a78562f.png">
 </p>
 <h2>Checkout Page</h2>
 <p>
-![Screenshot (247)](https://user-images.githubusercontent.com/95455444/194715987-ef4cb871-df5b-4997-a638-2ffcd39f9090.png)
+<img src="https://user-images.githubusercontent.com/95455444/194715987-ef4cb871-df5b-4997-a638-2ffcd39f9090.png">
 </p>
 <h2>Payment Page</h2>
 <p>
-![Screenshot (248)](https://user-images.githubusercontent.com/95455444/194716086-97e1c88d-3077-476c-a1ce-fa63cc00cb65.png)
+<img src="https://user-images.githubusercontent.com/95455444/194716086-97e1c88d-3077-476c-a1ce-fa63cc00cb65.png">
 </p>
  <h2>payment successful</h2>
  <p>
- ![Screenshot (250)](https://user-images.githubusercontent.com/95455444/194720123-1f18cdac-8337-41a4-9a68-d18c91c986d2.png)
+ <img src="https://user-images.githubusercontent.com/95455444/194720123-1f18cdac-8337-41a4-9a68-d18c91c986d2.png">
 </p>
 
             
