@@ -2,6 +2,10 @@
 zoom 50%
 Home Page
 ![Screenshot (232)](https://user-images.githubusercontent.com/95455444/194714615-abd4f9e1-5168-439d-b093-71e6674fe325.png)
+
+
+
+
 Store Page
 ![Screenshot (233)](https://user-images.githubusercontent.com/95455444/194714639-4bd36b19-ec1b-4bcd-a5eb-b5cf17824de6.png)
 Product Detail
