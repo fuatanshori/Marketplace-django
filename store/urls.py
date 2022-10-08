@@ -8,4 +8,6 @@ urlpatterns = [
     path('search/',views.search,name='search'),
     path('data/',views.alldata,name='data'),
     path('export_excel/',views.export_excel,name='export_excel'),
+    
+    path('submit_review/<int:product_id>/',views.submit_review,name='submit_review'),
 ]
