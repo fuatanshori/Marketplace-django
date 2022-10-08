@@ -3,6 +3,7 @@
 <h2>Home Page</h2>
 <b>zoom 50%</b>
 <p>
+  <img src="https://user-images.githubusercontent.com/95455444/194714615-abd4f9e1-5168-439d-b093-71e6674fe325.png">
 ![Screenshot (232)](https://user-images.githubusercontent.com/95455444/194714615-abd4f9e1-5168-439d-b093-71e6674fe325.png)
 </p>
 
