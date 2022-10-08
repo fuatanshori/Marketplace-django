@@ -55,7 +55,7 @@ Product Detail
 </p>
  <h2>payment successful</h2>
  <p>
- ![Screenshot (250)](https://user-images.githubusercontent.com/95455444/194716164-6df01f06-789c-47a1-8dc2-0e6ea132fe4a.png)
+ ![Screenshot (250)](https://user-images.githubusercontent.com/95455444/194720123-1f18cdac-8337-41a4-9a68-d18c91c986d2.png)
 </p>
 
             
