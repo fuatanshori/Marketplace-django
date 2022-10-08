@@ -1,7 +1,6 @@
 # Marketplace-django
 zoom 50%
-Home Page
-<p>
+<h2>Home Page</h2>
 ![Screenshot (232)](https://user-images.githubusercontent.com/95455444/194714615-abd4f9e1-5168-439d-b093-71e6674fe325.png)
 
 Register Page
@@ -12,7 +11,6 @@ Register Page
     ![Screenshot (240)](https://user-images.githubusercontent.com/95455444/194714857-346c264f-c116-4d40-b631-d32ec9a3d788.png)
       if click the link
         ![Screenshot (241)](https://user-images.githubusercontent.com/95455444/194714907-5fe452fc-9c7a-4bc2-ae29-c92e76432b30.png)
-  </p>
 zoom 100%
 Login Page
 ![Screenshot (238)](https://user-images.githubusercontent.com/95455444/194714739-be1ceb44-dcb3-4790-a9c9-263022293a12.png)
