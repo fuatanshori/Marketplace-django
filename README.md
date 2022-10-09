@@ -51,18 +51,7 @@
 <p>
 <img src="https://user-images.githubusercontent.com/95455444/194714676-105925bb-a1ad-4565-a2ef-26f62a78562f.png"> <br><br>
 </p>
-<h1>Checkout Page</h1>
-<p>
-<img src="https://user-images.githubusercontent.com/95455444/194715987-ef4cb871-df5b-4997-a638-2ffcd39f9090.png"> <br><br>
-</p>
-<h1>Payment Page</h1>
-<p>
-<img src="https://user-images.githubusercontent.com/95455444/194716086-97e1c88d-3077-476c-a1ce-fa63cc00cb65.png"> <br><br>
-</p>
- <h1>payment successful</h1>
- <p>
- <img src="https://user-images.githubusercontent.com/95455444/194720123-1f18cdac-8337-41a4-9a68-d18c91c986d2.png"> <br><br>
-</p>
+
 
             
     
