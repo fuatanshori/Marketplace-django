@@ -2,6 +2,7 @@
 from django.shortcuts import render,redirect,HttpResponse
 # database pada model
 from accounts.models import Account
+from orders.models import Order
 # forms
 from .forms import RegistrationForm,FormLogin,ForgotPassword,ResetPassword
 # authenticate
@@ -175,7 +176,12 @@ def activate(request,uidb64,token):
 # if user not login this website back to User Login
 @login_required(login_url="accounts:login")
 def dashboard(request):
-    return render(request,'accounts/dashboard.html')
+    orders=Order.objects.order_by('-created_at').filter(user_id=request.user.id,is_ordered=True)
+    orders_count =orders.count()
+    context={
+        'orders_count':orders_count,
+    }
+    return render(request,'accounts/dashboard.html',context)
 
 
 # user forgot the password 
